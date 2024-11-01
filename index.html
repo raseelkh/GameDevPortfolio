@@ -241,28 +241,98 @@
             border: 4px solid var(--primary);
         }
 
-        .contact {
-            padding: 5rem 2rem;
-            background: var(--card-bg);
-        }
+.social-links-section {
+    padding: 3rem 2rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 2rem auto;
+    max-width: 800px;
+}
 
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+.contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, #abff3e, #4aeaff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
 
-        .form-group {
-            margin-bottom: 2rem;
-        }
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 1.5rem;
+}
 
-        input, textarea {
-            width: 100%;
-            padding: 1rem;
-            background: var(--background);
-            border: 2px solid var(--primary);
-            color: var(--text);
-            font-family: inherit;
-        }
+.social-icon {
+    font-size: 2.8rem;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    color: #7289da;
+}
+
+
+
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.social-icon {
+    animation: float 7s ease-in-out infinite;
+}
+
+.linkedin {
+    animation-delay: 0s;
+}
+
+.email {
+    animation-delay: 1.5s;
+}
+
+/* Dark mode compatibility */
+[data-theme="light"] .social-icon {
+    color: #abff3e;
+}
+
+[data-theme="light"] .social-icon:hover {
+    color: #4aeaff;
+}
+
+/* Tooltip styles */
+.social-icon {
+    position: center;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 2rem;
+    }
+    
+    .social-icon {
+        font-size: 2.5rem;
+    }
+    
+    .social-container {
+        gap: 2rem;
+    }
+}
 
         .achievements {
             position: fixed;
@@ -334,12 +404,12 @@
 
     <nav class="navbar">
         <div class="nav-content">
-            <a href="#" class="logo">GAME DEV</a>
+            <a href="#" class="logo">Raseel</a>
             <div class="nav-links">
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
                 <a href="#about">About me</a>
-                <a href="#contact">Contact me</a>
+                <a href="#social-link">Contact me</a>
             </div>
             <button class="theme-toggle">🌙</button>
         </div>
@@ -406,28 +476,26 @@
     </section>
 
     <section id="about" class="about">
-        <img src="https://picsum.photos/400/400?random=4" alt="Profile" class="about-image floating">
+        <img src="assests/riri.png" alt="Profile" class="about-image floating">
         <div class="about-content">
             <h2>About Me</h2>
-            <p>Passionate developer who loves creating immersive gaming experiences. Specialized in Unreal Engine development. I'm also a 2D artist :p. </p>
+            <p>Passionate developer who loves creating immersive experiences. Specialized in Unreal Engine development. I'm also a 2D artist :p. </p>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <input type="text" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="cta-button">Send Message</button>
-        </form>
+    <section id="social-link" class="social-link">
+        <h2 class="contact-title">Let's Connect!</h2>    
+        <div class="social-container">
+            <a href="https://www.linkedin.com/in/raseel-al-mutairi-974953316/" target="_blank" class="social-icon linkedin">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:raseelkald@gmail.com" class="social-icon email">
+                <i class="far fa-envelope"></i>
+            </a>
+        </div>
     </section>
+    </section>
+
 
     <div class="achievements"></div>
 
