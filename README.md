@@ -1,1 +1,1 @@
-my game development portfolio
+my portfolio
