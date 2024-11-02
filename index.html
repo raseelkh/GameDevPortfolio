@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Dev Portfolio</title>
+    <title>Dev Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         :root {
-            --primary: #abff3e;
-            --secondary: #4aeaff;
+            --primary: #a4cb71;
+            --secondary: #93eaf6;
             --background: #1a1a1a;
             --text: #ffffff;
             --card-bg: #2a2a2a;
         }
 
         [data-theme="light"] {
-            --primary: #abff3e;
-            --secondary: #4aeaff;
-            --background: #f0f0f0;
+            --primary: #a4cb71;
+            --secondary: #93eaf6;
+            --background: #e1dfdf;
             --text: #1a1a1a;
             --card-bg: #ffffff;
         }
@@ -29,7 +29,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Press start 2p', cursive;
         }
 
         body {
@@ -254,11 +254,11 @@
 .contact-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    background: linear-gradient(45deg, #abff3e, #4aeaff);
+    background: linear-gradient(45deg, #a4cb71, #93eaf6);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 2px 2px 4px rgba(99, 98, 98, 0.1);
     text-align: center;
 }
 
@@ -305,11 +305,11 @@
 
 /* Dark mode compatibility */
 [data-theme="light"] .social-icon {
-    color: #abff3e;
+    color: #a4cb71;
 }
 
 [data-theme="light"] .social-icon:hover {
-    color: #4aeaff;
+    color: #93eaf6;
 }
 
 /* Tooltip styles */
@@ -419,7 +419,7 @@
         <div class="pixel-animation"></div>
         <div class="hero-content floating">
             <h1>Game Developer</h1>
-            <p>Creating immersive gaming experiences</p>
+            <p>Creating immersive experiences</p>
             <button class="cta-button">View Projects</button>
         </div>
     </section>
@@ -428,24 +428,24 @@
         <h2>Featured Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <img src="https://picsum.photos/800/600?random=1" alt="Project 1" class="project-image">
+                <img src="https://picsum.photos/800/600?random=2" alt="Maya" class="project-image">
                 <div class="project-info">
-                    <h3>Adventure Quest</h3>
-                    <p>3D RPG game with dynamic combat system</p>
+                    <h3>3D model: Navi</h3>
+                    <p>Game character using Maya</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="https://picsum.photos/800/600?random=2" alt="Project 2" class="project-image">
+                <img src="assests/navi.jpeg" alt="Navi" class="project-image">
                 <div class="project-info">
-                    <h3>Space Shooter</h3>
-                    <p>Retro-style arcade shooter</p>
+                    <h3>Reve: Navi</h3>
+                    <p>Mystery Fantasy game</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="https://picsum.photos/800/600?random=3" alt="Project 3" class="project-image">
+                <img src="assests/parkifyicon.jpeg" alt="Parkify" class="project-image">
                 <div class="project-info">
-                    <h3>Puzzle Master</h3>
-                    <p>Brain-teasing puzzle game</p>
+                    <h3>GP: Parkify</h3>
+                    <p>Smart Ai solution to parking problems in my university</p>
                 </div>
             </div>
         </div>
@@ -461,25 +461,37 @@
                 </div>
             </div>
             <div class="skill-bar">
-                <div class="skill-name">C++</div>
+                <div class="skill-name">3D Modeling: MAYA</div>
                 <div class="skill-progress">
-                    <div class="skill-fill" data-width="95"></div>
+                    <div class="skill-fill" data-width="75"></div>
                 </div>
             </div>
             <div class="skill-bar">
-                <div class="skill-name">3D Modeling: MAYA</div>
+                <div class="skill-name">C++</div>
                 <div class="skill-progress">
                     <div class="skill-fill" data-width="80"></div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">Python</div>
+                <div class="skill-progress">
+                    <div class="skill-fill" data-width="80"></div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">Flutter</div>
+                <div class="skill-progress">
+                    <div class="skill-fill" data-width="75"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="about" class="about">
-        <img src="assests/riri.png" alt="Profile" class="about-image floating">
+        <img src="assests/raseelicon1.png" alt="Profile" class="about-image floating">
         <div class="about-content">
             <h2>About Me</h2>
-            <p>Passionate developer who loves creating immersive experiences. Specialized in Unreal Engine development. I'm also a 2D artist :p. </p>
+            <p>Passionate developer who loves creating immersive experiences.<br /> Specialized in Unreal Engine development.<br /> Interested in AI<br />  I'm also a 2D artist :p. </p>
         </div>
     </section>
 
@@ -621,6 +633,28 @@
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'scale(1) rotateX(0) rotateY(0)';
             });
+        });
+    </script>
+     <script>
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            const projectsSection = document.getElementById('projects');
+            
+            // Smooth scroll to projects section
+            projectsSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            // Add click animation
+            const ripple = document.createElement('div');
+            ripple.classList.add('ripple');
+            this.appendChild(ripple);
+            
+            // Remove ripple after animation
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
         });
     </script>
 </body>
