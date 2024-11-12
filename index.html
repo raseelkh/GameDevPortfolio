@@ -397,6 +397,59 @@
         .floating {
             animation: float 4s ease-in-out infinite;
         }
+
+
+        .video-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-popup.active {
+            opacity: 1;
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.7);
+            width: 90%;
+            max-width: 800px;
+            transition: transform 0.3s ease;
+        }
+
+        .video-popup.active .popup-content {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-popup:hover {
+            transform: rotate(90deg);
+        }
+        #projectVideo {
+            width: 50%;
+            height: 50%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
     </style>
 </head>
 <body>
@@ -445,16 +498,27 @@
                     <p>Mystery Fantasy game</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" onclick="showVideoPopup()">
                 <img src="assests/parkifyicon.jpeg" alt="Parkify" class="project-image">
                 <div class="project-info">
                     <h3>GP: Parkify</h3>
                     <p>Smart Ai solution 
                        <br /> to parking problems in my university</p>
                 </div>
+                <div class="video-popup" id="videoPopup">
+                    <div class="popup-content">
+                        <span class="close-popup">&times;</span>
+                        <video id="projectVideo" controls>
+                            <source src="assests/parkifyDemo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+
+
 
     <section id="skills" class="skills">
         <h2>Skills</h2>
@@ -666,6 +730,58 @@
             setTimeout(() => {
                 ripple.remove();
             }, 600);
+        });
+    </script>
+    <script>
+        function showVideoPopup() {
+            const popup = document.getElementById('videoPopup');
+            const video = document.getElementById('projectVideo');
+            
+            popup.style.display = 'block';
+            // Force reflow
+            void popup.offsetWidth;
+            popup.classList.add('active');
+            video.play();
+            
+            // Prevent body scrolling
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Setup event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('videoPopup');
+            const closeBtn = document.querySelector('.close-popup');
+            const video = document.getElementById('projectVideo');
+            
+            function closeVideoPopup() {
+                popup.classList.remove('active');
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                    video.pause();
+                    video.currentTime = 0;
+                }, 300);
+                document.body.style.overflow = 'auto';
+            }
+
+            // Close button click
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeVideoPopup();
+            });
+            
+            // Click outside to close
+            popup.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    closeVideoPopup();
+                }
+            });
+            
+            // ESC key to close
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeVideoPopup();
+                }
+            });
         });
     </script>
 </body>
