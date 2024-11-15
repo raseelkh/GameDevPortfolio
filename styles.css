@@ -1,16 +1,16 @@
 /* Root Variables */
 :root {
-    --primary: #a4cb71;
-    --secondary: #93eaf6;
-    --background: #1a1a1a;
+    --primary: #f99c9c;
+    --secondary: #fbe7a1;
+    --background: #3e4a61;
     --text: #ffffff;
     --card-bg: #2a2a2a;
 }
 
 [data-theme="light"] {
-    --primary: #a4cb71;
-    --secondary: #93eaf6;
-    --background: #e1dfdf;
+    --primary: #f99c9c;
+    --secondary: #fbe7a1;
+    --background: #ffe1e2;
     --text: #1a1a1a;
     --card-bg: #ffffff;
 }
@@ -39,11 +39,16 @@ body {
     height: 100%;
     background: var(--background);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
-
+.loading-gif {
+    width: 100px; 
+    height: auto; 
+    margin-bottom: 20px; 
+}
 .loading-bar {
     width: 200px;
     height: 20px;
@@ -252,7 +257,7 @@ body {
 .contact-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    background: linear-gradient(45deg, #a4cb71, #93eaf6);
+    background: linear-gradient(45deg, #f99c9c, #fbe7a1);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -277,7 +282,7 @@ body {
 
 .social-icon:hover {
     transform: translateY(-5px) scale(1.1);
-    color: #7289da;
+    color: #abcfdc;
 }
 
 /* Floating Animation */
@@ -297,11 +302,11 @@ body {
 
 /* Dark Mode Compatibility */
 [data-theme="light"] .social-icon {
-    color: #a4cb71;
+    color: #f99c9c;
 }
 
 [data-theme="light"] .social-icon:hover {
-    color: #93eaf6;
+    color: #fbe7a1;
 }
 
 /* Achievements Section */
@@ -404,7 +409,7 @@ body {
     position: absolute;
     top: -40px;
     right: 0;
-    color: white;
+    color: #abcfdc;
     font-size: 32px;
     cursor: pointer;
     transition: transform 0.3s ease;
