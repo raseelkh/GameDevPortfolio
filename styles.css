@@ -415,7 +415,7 @@ body {
 }
 
 #projectVideo {
-    width: 50%; /* Responsive video */
+    width: 65%; /* Responsive video */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
