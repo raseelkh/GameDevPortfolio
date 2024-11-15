@@ -158,6 +158,22 @@ function showVideoPopup() {
 }
 
 // Setup event listeners for video popup
+// Video Popup
+function showVideoPopup() {
+    const popup = document.getElementById('videoPopup');
+    const video = document.getElementById('projectVideo');
+    
+    popup.style.display = 'block';
+    // Force reflow
+    void popup.offsetWidth;
+    popup.classList.add('active');
+    video.play();
+    
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+}
+
+// Setup event listeners for video popup
 document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('videoPopup');
     const closeBtn = document.querySelector('.close-popup');
