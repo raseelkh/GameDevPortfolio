@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
         closeVideoPopup();
     });
     
-    // Click outside to close
+    // Click outside to close 
     popup.addEventListener('click', (e) => {
         if (e.target === popup) {
             closeVideoPopup();
