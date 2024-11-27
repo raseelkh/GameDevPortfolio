@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Portfolio</title>
+    <title>Developer Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    
 </head>
-<body>
+<body data-theme="light">
     <div class="loading-screen">
         <img src="https://cdn.dribbble.com/users/6985975/screenshots/15278260/media/71139e2fbee8c6c916bfd5b0318321d7.gif" class="loading-gif">
         <div class="loading-bar">
@@ -42,43 +41,37 @@
     <section id="projects" class="projects">
         <h2>Featured Projects</h2>
         <div class="project-grid">
-            <div class="project-card">
-                <img src="https://picsum.photos/800/600?random=2" alt="Maya" class="project-image">
-                <div class="project-info">
-                    <h3>3D model: Navi</h3>
-                    <p>Game character using Maya</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="assests/navi.jpeg" alt="Navi" class="project-image">
+            <div class="project-card" data-video="https://youtu.be/K8j3yHcKRkA">
+                <img src="assests/navi.jpeg" alt="Unreal Engine" class="project-image">
                 <div class="project-info">
                     <h3>Reve: Navi</h3>
-                    <p>Mystery Fantasy game</p>
+                    <p>Fantasy Game using Unreal Engine</p>
                 </div>
+                <button class="video-button">Watch Video</button>
             </div>
-            <div class="project-card" onclick="showVideoPopup()">
+        
+            <div class="project-card" data-video="https://youtube.com/shorts/i4Ggc-W-fjU">
                 <img src="assests/parkifyicon.jpeg" alt="Parkify" class="project-image">
                 <div class="project-info">
                     <h3>GP: Parkify</h3>
-                    <p>Smart Ai solution 
-                       <br /> to parking problems in my university</p>
+                    <p>Smart AI solution to parking problems in my university</p>
                 </div>
-            </div>
-            <div id="videoPopup" class="video-popup">
-                <div class="popup-overlay"></div>
-                <div class="popup-content">
-                    <span class="close-popup">&times;</span>
-                    <video id="projectVideo" controls>
-                        <source src="assests/parkifyDemo.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                <button class="video-button">Watch Video</button>
             </div>
         </div>
     </section>
 
-
-
+    <div id="videoPopup" class="video-popup">
+        <div class="popup-overlay"></div>
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <iframe id="youtubeVideo" class="video" src="" frameborder="0" allowfullscreen style="display: none;"></iframe>
+            <video id="projectVideo" controls style="display: none;">
+                <source id="videoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
     <section id="skills" class="skills">
         <h2>Skills</h2>
@@ -135,7 +128,7 @@
             <p>Passionate developer who loves creating immersive experiences.
                 <br /> Specialized in Unreal Engine development. 
                 <br /> Interested in AI
-                <br />  I'm also a 2D artist :p. </p>
+                <br /> I'm also a 2D artist :p. </p>
         </div>
     </section>
 
@@ -153,8 +146,9 @@
             </a>
         </div>
     </section>
-    </section>
+
     <div class="achievements"></div>
+
     <script src="script.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

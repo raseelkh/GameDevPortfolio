@@ -142,52 +142,70 @@ document.querySelector('.cta-button').addEventListener('click', function(e) {
     }, 600);
 });
 
-// Video Popup
-function showVideoPopup() {
+// Function to show video popup
+function showVideoPopup(videoSrc) {
     const popup = document.getElementById('videoPopup');
-    const video = document.getElementById('projectVideo');
-    
+    const youtubeVideo = document.getElementById('youtubeVideo');
+    const projectVideo = document.getElementById('projectVideo');
+    const videoSource = document.getElementById('videoSource');
+
+    // Clear previous sources
+    youtubeVideo.src = "";
+    projectVideo.style.display = "none";
+    youtubeVideo.style.display = "none";
+
+    // Check if the video source is a YouTube link
+    if (videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be')) {
+        // Extract the video ID from the URL
+        const videoId = videoSrc.split('v=')[1]?.split('&')[0] || videoSrc.split('/').pop();
+        youtubeVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`; // Set source for YouTube
+        youtubeVideo.style.display = "block"; // Show the YouTube iframe
+    } else {
+        // Handle regular video URL (e.g., Google Drive)
+        const fileId = videoSrc.split('/d/')[1]?.split('/')[0];
+        const driveEmbedLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
+        videoSource.src = driveEmbedLink; // Set source for Google Drive video
+        projectVideo.style.display = "block"; // Show the video element
+        projectVideo.load(); // Load the new video
+    }
+
     popup.style.display = 'block';
     // Force reflow
     void popup.offsetWidth;
     popup.classList.add('active');
-    video.play();
-    
+
     // Prevent body scrolling
     document.body.style.overflow = 'hidden';
 }
 
-// Setup event listeners for video popup
-// Video Popup
-function showVideoPopup() {
+// Setup event listeners for project cards
+projectCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+        const videoSrc = card.dataset.video; // Get video source from data attribute
+        showVideoPopup(videoSrc); // Open the popup with the video
+    });
+});
+
+// Close Video Popup
+function closeVideoPopup() {
     const popup = document.getElementById('videoPopup');
-    const video = document.getElementById('projectVideo');
-    
-    popup.style.display = 'block';
-    // Force reflow
-    void popup.offsetWidth;
-    popup.classList.add('active');
-    video.play();
-    
-    // Prevent body scrolling
-    document.body.style.overflow = 'hidden';
+    const youtubeVideo = document.getElementById('youtubeVideo');
+    const projectVideo = document.getElementById('projectVideo');
+
+    popup.classList.remove('active');
+    setTimeout(() => {
+        popup.style.display = 'none';
+        youtubeVideo.src = ""; // Stop YouTube video
+        projectVideo.pause(); // Pause Google Drive video
+        projectVideo.currentTime = 0; // Reset Google Drive video
+    }, 300);
+    document.body.style.overflow = 'auto';
 }
 
-// Setup event listeners for video popup
+// Setup event listeners for closing the video popup
 document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('videoPopup');
     const closeBtn = document.querySelector('.close-popup');
-    const video = document.getElementById('projectVideo');
-    
-    function closeVideoPopup() {
-        popup.classList.remove('active');
-        setTimeout(() => {
-            popup.style.display = 'none';
-            video.pause();
-            video.currentTime = 0;
-        }, 300);
-        document.body.style.overflow = 'auto';
-    }
 
     // Close button click
     closeBtn.addEventListener('click', (e) => {
