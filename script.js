@@ -178,11 +178,17 @@ function showVideoPopup(videoSrc) {
     document.body.style.overflow = 'hidden';
 }
 
-// Setup event listeners for project cards
 projectCards.forEach(card => {
     card.addEventListener('click', (e) => {
         const videoSrc = card.dataset.video; // Get video source from data attribute
-        showVideoPopup(videoSrc); // Open the popup with the video
+        const redirectUrl = card.dataset.redirect; // Get redirect URL from data attribute
+
+        // Check if video source exists
+        if (videoSrc) {
+            showVideoPopup(videoSrc); // Open the popup with the video
+        } else if (redirectUrl) {
+            window.location.href = redirectUrl; // Redirect to the specified URL
+        }
     });
 });
 
