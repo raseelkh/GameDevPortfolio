@@ -306,6 +306,7 @@ body {
 .linkedin { animation-delay: 0s; }
 .email { animation-delay: 1.5s; }
 .Twitter { animation-delay: 0s; }
+.Github { animation-delay: 1.5s; }
 
 /* Dark Mode Compatibility */
 [data-theme="light"] .social-icon {
@@ -433,4 +434,8 @@ body {
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+footer {
+    text-align: center;  
+    padding: 20px;       
 }
