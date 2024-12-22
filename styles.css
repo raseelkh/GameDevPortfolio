@@ -143,17 +143,23 @@ body {
     margin-bottom: 2rem;
 }
 
+
 .cta-button {
-    padding: 1rem 2rem;
-    background: var(--primary);
-    color: white;
     border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    outline: none;
+    background-color: var(--primary);
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 5px;
+    transition: all ease 0.1s;
+    box-shadow: 0px 5px 0px 0px var(--background);
 }
 
-.cta-button:hover {
-    transform: scale(1.1);
+.cta-button:active {
+    transform: translateY(5px);
+    box-shadow: 0px 0px 0px 0px var(--background);
 }
 
 /* Projects Section */
