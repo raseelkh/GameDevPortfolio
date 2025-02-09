@@ -121,26 +121,7 @@ projectCards.forEach(card => {
     });
 });
 
-// Smooth Scroll to Projects
-document.querySelector('.cta-button').addEventListener('click', function(e) {
-    e.preventDefault();
-    const projectsSection = document.getElementById('projects');
-    
-    projectsSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
 
-    // Add click animation
-    const ripple = document.createElement('div');
-    ripple.classList.add('ripple');
-    this.appendChild(ripple);
-    
-    // Remove ripple after animation
-    setTimeout(() => {
-        ripple.remove();
-    }, 600);
-});
 
 // Function to show video popup
 function showVideoPopup(videoSrc) {
