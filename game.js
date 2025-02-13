@@ -57,9 +57,7 @@ function drawScore() {
   ctx.fillText(`Score: ${score}`, 10, 30);
 }
 
-function updateScore() {
-  score++;
-}
+
 
 function gameLoop() {
   if (gameOver) {
@@ -70,7 +68,33 @@ function gameLoop() {
 
     return;
   }
+function showSecretMessage() {
+  const message = document.createElement('div');
+  message.textContent = '🎉 Rarely do players unlock this score! 🎉';
+  message.style.position = 'absolute';
+  message.style.top = '50%';
+  message.style.left = '50%';
+  message.style.transform = 'translate(-50%, -50%)'; 
+  message.style.backgroundColor = 'rgba(248, 247, 247, 0.8)';
+  message.style.color = '#f7a8b8';
+  message.style.padding = '10px 20px'; 
+  message.style.borderRadius = '10px';
+  message.style.fontFamily = 'Press Start 2P';
+  message.style.fontSize = '14px'; 
+  message.style.zIndex = '1000';
+  document.body.appendChild(message);
 
+  setTimeout(() => {
+    message.remove();
+  }, 3000);
+}
+
+function updateScore() {
+  score++;
+  if (score === 2000) {
+    showSecretMessage();
+  }
+}
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   scoreSound.play();
   drawPlayer();
@@ -81,7 +105,6 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-// Keyboard controls (for desktops)
 document.addEventListener('keydown', (e) => {
   if (e.code === 'ArrowLeft' && player.x > 0) player.x -= 10;
   if (e.code === 'ArrowRight' && player.x < canvas.width - player.width) player.x += 10;
