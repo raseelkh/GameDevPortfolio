@@ -1,6 +1,7 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
+
 const player = { x: 180, y: 350, width: 40, height: 40, color: '#f7a8b8' };
 const obstacles = [];
 let gameOver = false;
