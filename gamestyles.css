@@ -5,6 +5,7 @@
   }
   
   body {
+    touch-action: manipulation; 
     background: #f1f5f9;
     color: #f7a8b8;
     font-family: 'Press Start 2P'; 
