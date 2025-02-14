@@ -444,7 +444,7 @@ footer {
     text-align: center;  
     padding: 20px;       
 }
-
+/* Timeline Section */
 .timeline {
     padding: 5rem 2rem;
     background: var(--card-bg);
@@ -452,10 +452,10 @@ footer {
 }
 
 .timeline-title {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Exo 2', sans-serif;
     font-size: 2rem;
     margin-bottom: 3rem;
-    color: var(--primary);
+    text-align: left;
 }
 
 .timeline-container {
@@ -510,28 +510,21 @@ footer {
     color: var(--text);
 }
 
-.timeline-icon {
-    position: absolute;
-    top: 50%;
-    right: -30px;
-    transform: translateY(-50%);
-    background: var(--primary);
-    color: var(--text);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.timeline-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-.timeline-item:nth-child(even) .timeline-icon {
-    left: -30px;
-    right: auto;
+.timeline-image:hover {
+    transform: scale(1.05);
 }
 
+/* Responsive Adjustments for Smaller Screens */
 @media (max-width: 768px) {
     .timeline-container::before {
         left: 20px;
@@ -550,25 +543,6 @@ footer {
         text-align: left;
     }
 
-    .timeline-item:nth-child(even) .timeline-icon {
-        left: 10px;
-    }
-}
-.timeline-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.timeline-image:hover {
-    transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
     .timeline-image {
         max-width: 100%;
     }
