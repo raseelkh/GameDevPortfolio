@@ -173,7 +173,7 @@ projectCards.forEach(card => {
     });
 });
 
-// Close Video Popup
+
 function closeVideoPopup() {
     const popup = document.getElementById('videoPopup');
     const youtubeVideo = document.getElementById('youtubeVideo');
@@ -182,9 +182,9 @@ function closeVideoPopup() {
     popup.classList.remove('active');
     setTimeout(() => {
         popup.style.display = 'none';
-        youtubeVideo.src = ""; // Stop YouTube video
-        projectVideo.pause(); // Pause Google Drive video
-        projectVideo.currentTime = 0; // Reset Google Drive video
+        youtubeVideo.src = ""; 
+        projectVideo.pause(); 
+        projectVideo.currentTime = 0; 
     }, 300);
     document.body.style.overflow = 'auto';
 }
@@ -206,7 +206,27 @@ document.addEventListener('DOMContentLoaded', function() {
             closeVideoPopup();
         }
     });
-    
+// Timeline Animation
+const timelineItems = document.querySelectorAll('.timeline-item');
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.5 });
+
+timelineItems.forEach(item => timelineObserver.observe(item));
+const timelineImages = document.querySelectorAll('.timeline-image');
+
+timelineImages.forEach(image => {
+    image.addEventListener('mouseenter', () => {
+        image.style.transform = 'scale(1.05)';
+    });
+    image.addEventListener('mouseleave', () => {
+        image.style.transform = 'scale(1)';
+    });
+});
     // ESC key to close
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
