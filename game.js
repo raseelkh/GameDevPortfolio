@@ -136,7 +136,7 @@ function showGameOverScreen() {
 
 async function updateLeaderboard(score) {
   try {
-      const response = await fetch('http://localhost:3000/api/leaderboard', {
+      const response = await fetch('http://localhost:5000/api/leaderboard', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -154,7 +154,7 @@ async function updateLeaderboard(score) {
 }
 async function showLeaderboard() {
   try {
-      const response = await fetch('http://localhost:3000/api/leaderboard');
+      const response = await fetch('http://localhost:5000/api/leaderboard');
       if (!response.ok) {
           console.error('Failed to fetch leaderboard');
           alert('Failed to load leaderboard. Please try again later.');
