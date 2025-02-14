@@ -76,9 +76,7 @@
   }
   #leaderboard {
     margin-top: 20px;
-    display: none;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     border-radius: 10px;
-    list-style-type: none;
 }
