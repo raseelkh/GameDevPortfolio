@@ -61,11 +61,7 @@ function drawScore() {
 
 function gameLoop() {
   if (gameOver) {
-    
-    setTimeout(() => {
-      window.location.href = 'index.html';  
-    }, 1000); 
-
+    showGameOverScreen();
     return;
   }
 function showSecretMessage() {
@@ -104,7 +100,35 @@ function updateScore() {
   updateScore();
   requestAnimationFrame(gameLoop);
 }
+function showGameOverScreen() {
+  const gameOverScreen = document.createElement('div');
+  gameOverScreen.innerHTML = `
+    <h1>Game Over</h1>
+    <p>Your Score: ${score}</p>
+    <button id="playAgainBtn">Play Again</button>
+    <button id="homeBtn">Return to My site</button>
+  `;
+  gameOverScreen.style.position = 'absolute';
+  gameOverScreen.style.top = '50%';
+  gameOverScreen.style.left = '50%';
+  gameOverScreen.style.transform = 'translate(-50%, -50%)';
+  gameOverScreen.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+  gameOverScreen.style.color = 'white';
+  gameOverScreen.style.padding = '20px';
+  gameOverScreen.style.borderRadius = '10px';
+  gameOverScreen.style.textAlign = 'center';
+  gameOverScreen.style.zIndex = '1000';
+  document.body.appendChild(gameOverScreen);
 
+  document.getElementById('playAgainBtn').addEventListener('click', () => {
+    gameOverScreen.remove
+    location.reload(); 
+  });
+  document.getElementById('homeBtn').addEventListener('click', () => {
+    gameOverScreen.remove
+    window.location.href = 'index.html';
+  });
+}
 document.addEventListener('keydown', (e) => {
   if (e.code === 'ArrowLeft' && player.x > 0) player.x -= 10;
   if (e.code === 'ArrowRight' && player.x < canvas.width - player.width) player.x += 10;
