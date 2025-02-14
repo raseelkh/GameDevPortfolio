@@ -8,6 +8,7 @@ let gameOver = false;
 let score = 0;
 const scoreSound = document.getElementById('scoreSound');
 const collisionSound = document.getElementById('collisionSound');
+const playerName = prompt('Enter your name:');
 
 function drawPlayer() {
   ctx.beginPath();
@@ -128,7 +129,54 @@ function showGameOverScreen() {
     gameOverScreen.remove
     window.location.href = 'index.html';
   });
+  updateLeaderboard(score).then(() => {
+    showLeaderboard();  
+});
 }
+
+async function updateLeaderboard(score) {
+  try {
+      const response = await fetch('http://localhost:3000/api/leaderboard', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name: playerName, score: score })
+      });
+      if (!response.ok) {
+          console.error('Failed to update leaderboard');
+          alert('Failed to update leaderboard. Please try again later.');
+      }
+  } catch (error) {
+      console.error('Network error:', error);
+      alert('Network error. Please try again later.');
+  }
+}
+async function showLeaderboard() {
+  try {
+      const response = await fetch('http://localhost:3000/api/leaderboard');
+      if (!response.ok) {
+          console.error('Failed to fetch leaderboard');
+          alert('Failed to load leaderboard. Please try again later.');
+          return;
+      }
+      const leaderboard = await response.json();
+      const leaderboardList = document.getElementById('leaderboardList');
+      leaderboardList.innerHTML = ''; 
+
+      leaderboard.forEach(entry => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `${entry.name}: ${entry.score}`;
+          leaderboardList.appendChild(listItem);
+      });
+
+      document.getElementById('leaderboard').style.display = 'block';  
+  } catch (error) {
+      console.error('Network error:', error);
+      alert('Network error. Please try again later.');
+  }
+}
+
 document.addEventListener('keydown', (e) => {
   if (e.code === 'ArrowLeft' && player.x > 0) player.x -= 10;
   if (e.code === 'ArrowRight' && player.x < canvas.width - player.width) player.x += 10;
