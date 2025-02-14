@@ -129,9 +129,7 @@ function showGameOverScreen() {
     gameOverScreen.remove
     window.location.href = 'index.html';
   });
-  updateLeaderboard(score).then(() => {
-    showLeaderboard();  
-});
+  updateLeaderboard(score);
 }
 
 async function updateLeaderboard(score) {
@@ -191,5 +189,6 @@ document.getElementById('rightBtn').addEventListener('click', () => {
   if (player.x < canvas.width - player.width) player.x += 10;
 });
 
+showLeaderboard();  
 setInterval(createObstacle, 1200);
 gameLoop();
