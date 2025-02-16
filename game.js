@@ -122,11 +122,11 @@ function showGameOverScreen() {
   document.body.appendChild(gameOverScreen);
 
   document.getElementById('playAgainBtn').addEventListener('click', () => {
-    gameOverScreen.remove
+    gameOverScreen.remove();
     location.reload(); 
   });
   document.getElementById('homeBtn').addEventListener('click', () => {
-    gameOverScreen.remove
+    gameOverScreen.remove();
     window.location.href = 'index.html';
   });
   updateLeaderboard(score);
