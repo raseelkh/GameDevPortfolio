@@ -257,6 +257,19 @@ document.getElementById('rightBtn').addEventListener('click', () => {
   if (player.x < canvas.width - player.width) player.x += 10;
 });
 
+function adjustDifficulty() {
+  if (score < 50) {
+    obstacleSpeed = 2;
+    spawnInterval = 1500;
+  } else if (score < 100) {
+    obstacleSpeed = 4;
+    spawnInterval = 1200;
+  } else {
+    obstacleSpeed = 6;
+    spawnInterval = 800;
+  }
+}
+
 showLeaderboard();
 setInterval(createObstacle, spawnInterval);
 gameLoop();
