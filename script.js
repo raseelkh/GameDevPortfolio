@@ -1,4 +1,3 @@
-// Loading Screen
 window.addEventListener('load', () => {
     const loadingScreen = document.querySelector('.loading-screen');
     const loadingProgress = document.querySelector('.loading-progress');
@@ -15,14 +14,12 @@ window.addEventListener('load', () => {
     }, 20);
 });
 
-// Theme Toggle
 const themeToggle = document.querySelector('.theme-toggle');
 themeToggle.addEventListener('click', () => {
     document.body.dataset.theme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
     themeToggle.textContent = document.body.dataset.theme === 'light' ? '🌙' : '☀️';
 });
 
-// Skill Bars Animation
 const skillFills = document.querySelectorAll('.skill-fill');
 const observerOptions = {
     threshold: 0.5
@@ -39,7 +36,6 @@ const observer = new IntersectionObserver((entries) => {
 
 skillFills.forEach(fill => observer.observe(fill));
 
-// Achievement System
 const achievements = [
     'Portfolio Viewed! +50XP',
     'Skill Section Reached! +100XP',
@@ -64,7 +60,6 @@ function showAchievement(text) {
     }, 3000);
 }
 
-// Trigger achievements on scroll
 let achievementIndex = 0;
 window.addEventListener('scroll', () => {
     if (achievementIndex < achievements.length && Math.random() < 0.1) {
@@ -73,7 +68,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Pixel Animation
 const pixelAnimation = document.querySelector('.pixel-animation');
 function createPixel() {
     const pixel = document.createElement('div');
@@ -101,7 +95,6 @@ function createPixel() {
 
 setInterval(createPixel, 100);
 
-// Project Cards Interaction
 const projectCards = document.querySelectorAll('.project-card');
 projectCards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -121,58 +114,46 @@ projectCards.forEach(card => {
     });
 });
 
-
-
-// Function to show video popup
 function showVideoPopup(videoSrc) {
     const popup = document.getElementById('videoPopup');
     const youtubeVideo = document.getElementById('youtubeVideo');
     const projectVideo = document.getElementById('projectVideo');
     const videoSource = document.getElementById('videoSource');
 
-    // Clear previous sources
     youtubeVideo.src = "";
     projectVideo.style.display = "none";
     youtubeVideo.style.display = "none";
 
-    // Check if the video source is a YouTube link
     if (videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be')) {
-        // Extract the video ID from the URL
         const videoId = videoSrc.split('v=')[1]?.split('&')[0] || videoSrc.split('/').pop();
-        youtubeVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`; // Set source for YouTube
-        youtubeVideo.style.display = "block"; // Show the YouTube iframe
+        youtubeVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        youtubeVideo.style.display = "block";
     } else {
-        // Handle regular video URL (e.g., Google Drive)
         const fileId = videoSrc.split('/d/')[1]?.split('/')[0];
         const driveEmbedLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
-        videoSource.src = driveEmbedLink; // Set source for Google Drive video
-        projectVideo.style.display = "block"; // Show the video element
-        projectVideo.load(); // Load the new video
+        videoSource.src = driveEmbedLink;
+        projectVideo.style.display = "block";
+        projectVideo.load();
     }
 
     popup.style.display = 'block';
-    // Force reflow
     void popup.offsetWidth;
     popup.classList.add('active');
-
-    // Prevent body scrolling
     document.body.style.overflow = 'hidden';
 }
 
 projectCards.forEach(card => {
     card.addEventListener('click', (e) => {
-        const videoSrc = card.dataset.video; // Get video source from data attribute
-        const redirectUrl = card.dataset.redirect; // Get redirect URL from data attribute
+        const videoSrc = card.dataset.video;
+        const redirectUrl = card.dataset.redirect;
 
-        // Check if video source exists
         if (videoSrc) {
-            showVideoPopup(videoSrc); // Open the popup with the video
+            showVideoPopup(videoSrc);
         } else if (redirectUrl) {
-            window.location.href = redirectUrl; // Redirect to the specified URL
+            window.location.href = redirectUrl;
         }
     });
 });
-
 
 function closeVideoPopup() {
     const popup = document.getElementById('videoPopup');
@@ -189,45 +170,42 @@ function closeVideoPopup() {
     document.body.style.overflow = 'auto';
 }
 
-// Setup event listeners for closing the video popup
 document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('videoPopup');
     const closeBtn = document.querySelector('.close-popup');
 
-    // Close button click
     closeBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         closeVideoPopup();
     });
     
-    // Click outside to close 
     popup.addEventListener('click', (e) => {
         if (e.target === popup) {
             closeVideoPopup();
         }
     });
-// Timeline Animation
-const timelineItems = document.querySelectorAll('.timeline-item');
-const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
-    });
-}, { threshold: 0.5 });
 
-timelineItems.forEach(item => timelineObserver.observe(item));
-const timelineImages = document.querySelectorAll('.timeline-image');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.5 });
 
-timelineImages.forEach(image => {
-    image.addEventListener('mouseenter', () => {
-        image.style.transform = 'scale(1.05)';
+    timelineItems.forEach(item => timelineObserver.observe(item));
+    const timelineImages = document.querySelectorAll('.timeline-image');
+
+    timelineImages.forEach(image => {
+        image.addEventListener('mouseenter', () => {
+            image.style.transform = 'scale(1.05)';
+        });
+        image.addEventListener('mouseleave', () => {
+            image.style.transform = 'scale(1)';
+        });
     });
-    image.addEventListener('mouseleave', () => {
-        image.style.transform = 'scale(1)';
-    });
-});
-    // ESC key to close
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeVideoPopup();
