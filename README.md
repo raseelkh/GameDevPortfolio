@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website. Built to showcase projects, skills, and personality.
 
-![Portfolio Preview](./assets/Website_Preview.png)
+![Portfolio Preview](./assests/Website_Preview.png)
 
 ## Features ✨
 
