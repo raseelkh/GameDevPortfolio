@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="gamestyles.css">
+</head>
+<body>
+  <section id="game">
+    <p>Help pinky dodge falling obstacles!</p>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <div class="controls">
+      <button class="control-btn" id="leftBtn">←</button>
+      <button class="control-btn" id="rightBtn">→</button>
+    </div>
+  </section>
+  <div id="leaderboard">
+    <h2><center>Leaderboard</center></h2>
+      <ul id="leaderboardList"></ul>
+  </div>
+  <audio id="scoreSound" src="assests/score.wav"></audio>
+  <audio id="collisionSound" src="assests/collision.wav"></audio>
+  <audio id="powerUpSound" src="assests/powerupsound.mp3"></audio>
+  <script src="game.js"></script>
+</body>
+</html>

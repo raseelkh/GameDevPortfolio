@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  touch-action: manipulation;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  color: #f7a8b8;
+  font-family: 'Press Start 2P', cursive;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#game {
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+canvas {
+  display: block;
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 2rem auto;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border: 4px solid #f7a8b8;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+  margin-top: 20px;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    z-index: 10;
+  }
+
+  .control-btn {
+    width: 80px;
+    height: 80px;
+    background-color: #f7a8b8;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .control-btn:hover {
+    background-color: #f9cbd4;
+    transform: scale(1.1);
+  }
+
+  .control-btn:active {
+    background-color: #e56d85;
+    transform: scale(1);
+  }
+}
+
+#leaderboard {
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+#leaderboard h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #f7a8b8;
+  text-transform: uppercase;
+}
+
+#leaderboardList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#leaderboardList li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #f7a8b8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#leaderboardList li span {
+  font-weight: bold;
+  color: #f9e18c;
+}
+
